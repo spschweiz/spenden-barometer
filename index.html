@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="./barometer.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="barometer-container"></div>
+    <script>
+        let baro = new Barometer();
+        
+        //Settings
+        baro.goal = 100000;
+        baro.offline_amount = 200;
+        baro.offline_backers = 10;
+        baro.lang = "it";
+        baro.baro_show_revenue = true;
+        baro.show_donation_revenue = true;
+        baro.show_donation_revenue_with_goal = true;
+        baro.show_text_donation_object = true;
+        baro.show_text_amount_backers = true;
+        baro.show_text_amount_backers_with_goal = true;
+        baro.campaign = "cwd_210329_co2";
+        baro.campaign_is_id = false;
+        baro.goal_backers = 500;
+        baro.donation_object = ["Plakaten", "affiches", "poster"];
+        baro.donation_object_price = 100;
+        baro.mean = true; 
+        baro.end_date = "2022-07-10";
+        baro.show_days_remaining = true;
+        
+        baro.render();
+    </script>
+</body>
+</html>

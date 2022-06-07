@@ -1,0 +1,16 @@
+.baro-border{
+    width: 100%;
+    background-color: #c5ced5;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    border-radius: 100px;
+    padding: 7px;
+}
+
+.baro-progress{
+    background-color: #e5022e;
+
+    height: 100%;
+    border-radius: 100px;
+}
