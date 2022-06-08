@@ -1,3 +1,7 @@
+:root{
+    --progress-width: 0%;
+}
+
 .baro-border{
     width: 100%;
     background-color: #c5ced5;
@@ -10,7 +14,18 @@
 
 .baro-progress{
     background-color: #e5022e;
-
     height: 100%;
     border-radius: 100px;
+    animation: progressBar 2000ms 10ms ease-in-out;
+    width: var(--progress-width);
+}
+
+@keyframes progressBar{
+    0%{
+        width: 0%;
+    }
+
+    100%{
+        width: var(--progress-width);
+    }
 }
