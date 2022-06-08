@@ -43,14 +43,13 @@ class Barometer {
         await fetch(`https://tel.sp-ps.ch/raisenow/barometer/${this.campaign}/${this.campaign_is_id}`)
             .then(response => response.json())
             .then(data => this.data = data);
-        console.log(this.data);
         let stats = this.data.result.facets[0].stats;
-        console.log(stats);
         let amount_left = this.goal - (this.offline_amount + (parseInt(stats.total) / 100));
         let percentage = (1 - (amount_left / this.goal)) * 100;
         if(!this.baro_show_revenue && this.goal_backers != 0){
             percentage = (((this.offline_backers + stats.count) / this.goal_backers)) * 100;
         }
+        document.documentElement.style.setProperty('--progress-width', `${percentage}%`);
         
         
         let container = document.getElementById("barometer-container");
@@ -61,8 +60,7 @@ class Barometer {
         baro_progress.classList.add("baro-progress");
         baro_text_container.classList.add("baro-text-container");
         
-        
-        baro_progress.style.width = `${percentage}%`
+       // baro_progress.style.width = `${percentage}%`
         baro_border.appendChild(baro_progress);
         
         if(this.show_donation_revenue){
@@ -154,7 +152,6 @@ class Barometer {
 
         if(this.show_days_remaining && this.end_date != ""){
             let baro_text_remaining = document.createElement("p");
-            console.log(this.end_date);
             let end_date = Date.parse(this.end_date);
             let today = new Date();
 
