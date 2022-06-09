@@ -66,6 +66,8 @@ class Barometer {
         if(this.show_donation_revenue){
             let baro_text_goal = document.createElement("p");
             baro_text_goal.classList.add("baro-text");
+            baro_text_goal.classList.add("baro-text-donation-revenue");
+
             let total = Math.floor(((stats.total / 100) + this.offline_amount)).toLocaleString("de-CH");
 
             if(this.lang == "de"){
@@ -96,6 +98,9 @@ class Barometer {
         if(this.donation_object.length > 0 && this.donation_object_price != 0 && this.show_text_donation_object){
             let donation_object_quantity = Math.floor(this.goal / this.donation_object_price);
             let baro_text_for_what = document.createElement("p");
+            baro_text_for_what.classList.add("baro-text");
+            baro_text_for_what.classList.add("baro-text-object_quantity");
+
             let amount_financed = Math.floor((this.offline_amount + (parseInt(stats.total) / 100)) / this.donation_object_price);
 
             if(this.lang == "de"){
@@ -111,7 +116,9 @@ class Barometer {
 
         if(this.show_text_amount_backers){
             let baro_text_backers = document.createElement("p");
-            
+            baro_text_backers.classList.add("baro-text");
+            baro_text_backers.classList.add("baro-text-backers");
+
             if(this.lang == "de"){
                 if(this.goal_backers > 0 && this.show_text_amount_backers_with_goal){
                     baro_text_backers.innerHTML = `<b>${stats.count + this.offline_backers}</b> von ${this.goal_backers} Spender:innen`;
@@ -131,14 +138,15 @@ class Barometer {
                     baro_text_backers.innerHTML = `<b>${stats.count + this.offline_backers}</b> donatori`;                    
                 }
             }
-            
             baro_text_container.appendChild(baro_text_backers);
         } 
 
         if(this.mean){
             let mean = Math.round(stats.total / (this.offline_backers + stats.count));
             let baro_text_mean = document.createElement("p");
-            
+            baro_text_mean.classList.add("baro-text");
+            baro_text_mean.classList.add("baro-text-mean");
+
             if(this.lang == "de"){
                 baro_text_mean.innerHTML = `<b>${mean.toLocaleString("de-CH")}</b> Franken Durchschnittsspende`;
             } else if (this.lang == "fr"){
@@ -152,6 +160,9 @@ class Barometer {
 
         if(this.show_days_remaining && this.end_date != ""){
             let baro_text_remaining = document.createElement("p");
+            baro_text_remaining.classList.add("baro-text");
+            baro_text_remaining.classList.add("baro-text-days-remaining");
+
             let end_date = Date.parse(this.end_date);
             let today = new Date();
 
