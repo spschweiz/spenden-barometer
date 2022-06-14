@@ -180,5 +180,8 @@ class Barometer {
             }
             baro_text_container.appendChild(baro_text_remaining);
         }
+
+        //FORCE RELOAD OF CSS AND JS 
+        document.getElementById("css").href = `${document.getElementById("css").href}?${new Date().toDateString("dd-mm-yyyy")}`;
     }
 }
