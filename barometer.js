@@ -182,6 +182,6 @@ class Barometer {
         }
 
         //FORCE RELOAD OF CSS AND JS 
-        document.getElementById("css").href += new Date().toLocaleDateString().replaceAll("/", "-");
+        document.getElementById("js").href += new Date().toLocaleDateString().replaceAll("/", "-");
     }
 }
