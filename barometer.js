@@ -184,7 +184,10 @@ class Barometer {
         }
 
         //FORCE RELOAD OF CSS AND JS TO IGNORE CACHED FILE (...AT LEAST ONCE A DAY)
-        document.getElementById("js").src += "?" + new Date().toLocaleDateString().replaceAll("/", "-");
-        document.getElementById("css").href += "?" + new Date().toLocaleDateString().replaceAll("/", "-");
+        let today = new Date();
+        let date = today.toLocaleDateString().replaceAll("/", "-");
+        let hour = today.getHours();
+        document.getElementById("js").src += "?" + `${date}-${hour}`;
+        document.getElementById("css").href += "?" +`${date}-${hour}`;
     }
 }
