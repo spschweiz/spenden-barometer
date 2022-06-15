@@ -16,7 +16,8 @@ class Barometer {
         donation_object_price = 0, 
         mean = false, 
         end_date = "",
-        show_days_remaining = false
+        show_days_remaining = false,
+        color = "#e5022"
         ){
             this.data = {};
             this.goal = goal;
@@ -37,6 +38,7 @@ class Barometer {
             this.mean = mean;
             this.end_date = end_date;
             this.show_days_remaining = show_days_remaining;
+            this.color = color;
         }
 
     async render(){
@@ -60,7 +62,7 @@ class Barometer {
         baro_progress.classList.add("baro-progress");
         baro_text_container.classList.add("baro-text-container");
         
-       // baro_progress.style.width = `${percentage}%`
+        baro_progress.style.backgroundColor = this.color;
         baro_border.appendChild(baro_progress);
         
         if(this.show_donation_revenue){
