@@ -96,12 +96,12 @@ class Barometer {
         container.appendChild(baro_text_container);
 
         if(this.donation_object.length > 0 && this.donation_object_price != 0 && this.show_text_donation_object){
-            let donation_object_quantity = Math.floor(this.goal / this.donation_object_price);
+            let donation_object_quantity = (Math.floor(this.goal / this.donation_object_price)).toLocaleString("de-CH");
             let baro_text_for_what = document.createElement("p");
             baro_text_for_what.classList.add("baro-text");
             baro_text_for_what.classList.add("baro-text-object_quantity");
 
-            let amount_financed = Math.floor((this.offline_amount + (parseInt(stats.total) / 100)) / this.donation_object_price);
+            let amount_financed = (Math.floor((this.offline_amount + (parseInt(stats.total) / 100)) / this.donation_object_price)).toLocaleString("de-CH");
 
             if(this.lang == "de"){
                 baro_text_for_what.innerHTML = `<b>${amount_financed}</b> von ${donation_object_quantity} ${this.donation_object[0]} finanziert`;
@@ -118,41 +118,43 @@ class Barometer {
             let baro_text_backers = document.createElement("p");
             baro_text_backers.classList.add("baro-text");
             baro_text_backers.classList.add("baro-text-backers");
+            let count_backers = (stats.count + this.offline_backers).toLocaleString("de-CH");
 
             if(this.lang == "de"){
                 if(this.goal_backers > 0 && this.show_text_amount_backers_with_goal){
-                    baro_text_backers.innerHTML = `<b>${stats.count + this.offline_backers}</b> von ${this.goal_backers} Spender:innen`;
+                    baro_text_backers.innerHTML = `<b>${count_backers}</b> von ${this.goal_backers} Spender:innen`;
                 } else {
-                    baro_text_backers.innerHTML = `<b>${stats.count + this.offline_backers}</b> Spender:innen`;
+                    baro_text_backers.innerHTML = `<b>${count_backers}</b> Spender:innen`;
                 }
             } else if (this.lang == "fr"){
                 if(this.goal_backers > 0 && this.show_text_amount_backers_with_goal){
-                    baro_text_backers.innerHTML = `<b>${stats.count + this.offline_backers}</b> sur ${this.goal_backers} donateurs:-trices`;
+                    baro_text_backers.innerHTML = `<b>${count_backers}</b> sur ${this.goal_backers} donateurs:-trices`;
                 } else{
-                    baro_text_backers.innerHTML = `<b>${stats.count + this.offline_backers}</b> donateurs:-trices`;
+                    baro_text_backers.innerHTML = `<b>${count_backers}</b> donateurs:-trices`;
                 }
             } else{
                 if(this.goal_backers > 0 && this.show_text_amount_backers_with_goal){
-                    baro_text_backers.innerHTML = `<b>${stats.count + this.offline_backers}</b> su ${this.goal_backers} donatori`;                    
+                    baro_text_backers.innerHTML = `<b>${count_backers}</b> su ${this.goal_backers} donatori`;                    
                 } else {
-                    baro_text_backers.innerHTML = `<b>${stats.count + this.offline_backers}</b> donatori`;                    
+                    baro_text_backers.innerHTML = `<b>${count_backers}</b> donatori`;                    
                 }
             }
             baro_text_container.appendChild(baro_text_backers);
         } 
 
         if(this.mean){
-            let mean = Math.round(stats.total / (this.offline_backers + stats.count));
+            let mean = ((Math.round(stats.total / (this.offline_backers + stats.count))) / 100).toLocaleString("de-CH");
             let baro_text_mean = document.createElement("p");
             baro_text_mean.classList.add("baro-text");
             baro_text_mean.classList.add("baro-text-mean");
 
+
             if(this.lang == "de"){
-                baro_text_mean.innerHTML = `<b>${mean.toLocaleString("de-CH")}</b> Franken Durchschnittsspende`;
+                baro_text_mean.innerHTML = `<b>${mean}</b> Franken Durchschnittsspende`;
             } else if (this.lang == "fr"){
-                baro_text_mean.innerHTML = `<b>${mean.toLocaleString("de-CH")}</b> francs de don moyen`;
+                baro_text_mean.innerHTML = `<b>${mean}</b> francs de don moyen`;
             } else {
-                baro_text_mean.innerHTML = `<b>${mean.toLocaleString("de-CH")}</b> franchi donazione media`;
+                baro_text_mean.innerHTML = `<b>${mean}</b> franchi donazione media`;
             }
             
             baro_text_container.appendChild(baro_text_mean);
@@ -181,7 +183,8 @@ class Barometer {
             baro_text_container.appendChild(baro_text_remaining);
         }
 
-        //FORCE RELOAD OF CSS AND JS 
-        document.getElementById("js").href += new Date().toLocaleDateString().replaceAll("/", "-");
+        //FORCE RELOAD OF CSS AND JS TO IGNORE CACHED FILE (...AT LEAST ONCE A DAY)
+        document.getElementById("js").src += "?" + new Date().toLocaleDateString().replaceAll("/", "-");
+        document.getElementById("css").href += "?" + new Date().toLocaleDateString().replaceAll("/", "-");
     }
 }
