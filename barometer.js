@@ -191,5 +191,34 @@ class Barometer {
         let hour = today.getHours();
         document.getElementById("js").src += "?" + `${date}-${hour}`;
         document.getElementById("css").href += "?" +`${date}-${hour}`;
+
+
+
+        let baro_observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("progress-animation");
+                }
+            })
+        })
+
+        let text_observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    text_animation.forEach(e => {
+                        e.classList.add("text-animation")
+                    })
+                }
+            })
+        })
+
+        let baro_animation = document.querySelector(".baro-progress");
+        let text_animation = document.querySelectorAll(".baro-text");
+
+        baro_observer.observe(baro_animation);
+        text_observer.observe(baro_animation);
+
+
+
     }
 }
