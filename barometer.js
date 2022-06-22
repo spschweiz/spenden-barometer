@@ -17,7 +17,8 @@ class Barometer {
         mean = false, 
         end_date = "",
         show_days_remaining = false,
-        color = "#e5022"
+        progress_color = "#e5022",
+        back_color = '#c5ced5',
         ){
             this.data = {};
             this.goal = goal;
@@ -38,7 +39,8 @@ class Barometer {
             this.mean = mean;
             this.end_date = end_date;
             this.show_days_remaining = show_days_remaining;
-            this.color = color;
+            this.progress_color = progress_color;
+            this.back_color = back_color;
         }
 
     async render(){
@@ -62,7 +64,8 @@ class Barometer {
         baro_progress.classList.add("baro-progress");
         baro_text_container.classList.add("baro-text-container");
         
-        baro_progress.style.backgroundColor = this.color;
+        baro_progress.style.backgroundColor = this.progress_color;
+        baro_border.style.backgroundColor = this.back_color;
         baro_border.appendChild(baro_progress);
         
         if(this.show_donation_revenue){
