@@ -1,5 +1,6 @@
 :root{
     --progress-width: 0%;
+    --baro-color: '';
 }
 
 .baro-border{
@@ -38,7 +39,7 @@
 
 .baro-text:before {
   content: '\2B24';
-  color:  #e5022e;
+  color:  var(--baro-color);
   font-size: 50%;
   position: absolute;
   left: 0;

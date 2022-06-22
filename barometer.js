@@ -45,8 +45,8 @@ class Barometer {
 
     async render(){
         await fetch(`https://tel.sp-ps.ch/raisenow/barometer/${this.campaign}/${this.campaign_is_id}`)
-            .then(response => response.json())
-            .then(data => this.data = data);
+        .then(response => response.json())
+        .then(data => this.data = data);
         let stats = this.data.result.facets[0].stats;
         let amount_left = this.goal - (this.offline_amount + (parseInt(stats.total) / 100));
         let percentage = (1 - (amount_left / this.goal)) * 100;
@@ -54,6 +54,7 @@ class Barometer {
             percentage = (((this.offline_backers + stats.count) / this.goal_backers)) * 100;
         }
         document.documentElement.style.setProperty('--progress-width', `${percentage}%`);
+        document.documentElement.style.setProperty('--baro-color', `${this.progress_color}`);
         
         
         let container = document.getElementById("barometer-container");
