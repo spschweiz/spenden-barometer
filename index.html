@@ -1,12 +1,13 @@
 <link id="css" rel="stylesheet" href="https://tel.sp-ps.ch/js/barometer/style.css"> 
 <div id="barometer-container"></div>
-<script id="js" src="https://tel.sp-ps.ch/js/barometer/barometer.js"></script>
+<!-- <script id="js" src="https://tel.sp-ps.ch/js/barometer/barometer.js"></script> -->
+<script id="js" src="./barometer.js"></script>
 <script>
     let baro = new Barometer();
 
     /***************Settings**************/
     // Display language
-    baro.lang = "fr";
+    baro.lang = "de";
     
     // RaiseNow campaign id or stored_hidden_parameter
     baro.campaign = "cwd_210329_co2";
@@ -37,8 +38,8 @@
     // When true, shows how many of the object (e.g. posters) are financed
     baro.show_text_donation_object = true;
     
-    // Object name, for which money is collected. Needs to be adjusted to grammer
-    // sentenced will be in the following form: 
+    // Object name, for which money is collected. Needs to be adjusted to grammar
+    // sentence will be in the following form: 
     // DE - 8 von 10 Plakaten finanziert
     // FR - 4 affiches sur 10 financés
     // IT - Finanziati 4 di 10 cartelloni
@@ -58,7 +59,7 @@
     baro.goal_backers = 500;
     
     // When true, the average given money is displayed
-    baro.mean = false;
+    baro.mean = true;
     
     // End date for campaign
     baro.end_date = "2022-07-10";

@@ -149,7 +149,7 @@ class Barometer {
         } 
 
         if(this.mean){
-            let mean = Math.floor((stats.total / (this.offline_backers + stats.count) / 100)).toLocaleString("de-CH");
+            let mean = Math.floor(((stats.total + this.offline_amount) / (this.offline_backers + stats.count) / 100)).toLocaleString("de-CH");
             let baro_text_mean = document.createElement("p");
             baro_text_mean.classList.add("baro-text");
             baro_text_mean.classList.add("baro-text-mean");
