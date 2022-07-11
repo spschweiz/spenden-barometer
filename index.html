@@ -1,80 +1,83 @@
-<link id="css" rel="stylesheet" href="https://tel.sp-ps.ch/js/barometer/style.css"> 
+<link
+  id="css"
+  rel="stylesheet"
+  href="https://tel.sp-ps.ch/js/barometer/style.css"
+/>
 <div id="barometer-container"></div>
 <script id="js" src="https://tel.sp-ps.ch/js/barometer/barometer.js"></script>
 <!-- <script id="js" src="./barometer.js"></script> -->
 <script>
-    let baro = new Barometer();
+  let baro = new Barometer();
 
-    /***************Settings**************/
-    // Display language
-    baro.lang = "de";
-    
-    // RaiseNow campaign id or stored_hidden_parameter
-    baro.campaign = "cwd_210329_co2";
-    
-    // When true, baro.campaign is a campaign id
-    // When false, baro.campaign is a stored_hidden_parameter
-    baro.campaign_is_id = false;
-    
-    // Goal in CHF
-    baro.goal = 100000;
-    
-    // Donation amount, which is not in RaiseNow in CHF
-    baro.offline_amount = 0;
-    
-    // Count of donateurs who gave money offline
-    baro.offline_backers = 0;
-    
-    // When true, barometer shows how much of the money-goal is reached
-    // when false, barometer shows how much of the backer-goal is reached
-    baro.baro_show_revenue = true;
-    
-    // When true, text will be displayed, how much money (online and offline) is raised in CHF
-    baro.show_donation_revenue = true;
-    
-    // When true, displays the collected money in relation to the goal
-    baro.show_donation_revenue_with_goal = true;
-    
-    // When true, shows how many of the object (e.g. posters) are financed
-    baro.show_text_donation_object = true;
-    
-    // Object name, for which money is collected. Needs to be adjusted to grammar
-    // sentence will be in the following form: 
-    // DE - 8 von 10 Plakaten finanziert
-    // FR - 4 affiches sur 10 financés
-    // IT - Finanziati 4 di 10 cartelloni
-    baro.donation_object = ["DE", "FR", "IT"];
+  /***************Settings**************/
+  // Display language
+  baro.lang = "de";
 
-    // Price for each object
-    baro.donation_object_price = 100;
+  // RaiseNow campaign id or stored_hidden_parameter
+  baro.campaign = "cwd_210329_co2";
 
-    // When true, displays how many donateurs gave money (offline and online)
-    baro.show_text_amount_backers = true;
+  // When true, baro.campaign is a campaign id
+  // When false, baro.campaign is a stored_hidden_parameter
+  baro.campaign_is_id = false;
 
-    // When true, displays how many donateurs gave money (offline and online) 
-    // in relation to the goal
-    baro.show_text_amount_backers_with_goal = true;    
-    
-    // Count goal for donateurs
-    baro.goal_backers = 500;
-    
-    // When true, the average given money is displayed
-    baro.mean = true;
-    
-    // End date for campaign
-    baro.end_date = "2022-07-10";
-    
-    // When true, displays how many days of the campaign are remaining
-    baro.show_days_remaining = true;
-    
-    // Color of the progress bar
-    // SP red: #e5022e
-    baro.progress_color = "#e5022e";
-    
-    // Background color of progress bar
-    // default grey: #c5ced5
-    baro.back_color = '#c5ced5';
+  // Goal in CHF
+  baro.goal = 100000;
 
-    baro.render();
+  // Donation amount, which is not in RaiseNow in CHF
+  baro.offline_amount = 0;
+
+  // Count of donateurs who gave money offline
+  baro.offline_backers = 0;
+
+  // When true, barometer shows how much of the money-goal is reached
+  // when false, barometer shows how much of the backer-goal is reached
+  baro.baro_show_revenue = true;
+
+  // When true, text will be displayed, how much money (online and offline) is raised in CHF
+  baro.show_donation_revenue = true;
+
+  // When true, displays the collected money in relation to the goal
+  baro.show_donation_revenue_with_goal = true;
+
+  // When true, shows how many of the object (e.g. posters) are financed
+  baro.show_text_donation_object = true;
+
+  // Object name, for which money is collected. Needs to be adjusted to grammar
+  // sentence will be in the following form:
+  // DE - 8 von 10 Plakaten finanziert
+  // FR - 4 affiches sur 10 financés
+  // IT - Finanziati 4 di 10 cartelloni
+  baro.donation_object = ["DE", "FR", "IT"];
+
+  // Price for each object
+  baro.donation_object_price = 100;
+
+  // When true, displays how many donateurs gave money (offline and online)
+  baro.show_text_amount_backers = true;
+
+  // When true, displays how many donateurs gave money (offline and online)
+  // in relation to the goal
+  baro.show_text_amount_backers_with_goal = true;
+
+  // Count goal for donateurs
+  baro.goal_backers = 500;
+
+  // When true, the average given money is displayed
+  baro.mean = true;
+
+  // End date for campaign
+  baro.end_date = "2022-07-10";
+
+  // When true, displays how many days of the campaign are remaining
+  baro.show_days_remaining = true;
+
+  // Color of the progress bar
+  // SP red: #E4002B
+  baro.progress_color = "#E4002B";
+
+  // Background color of progress bar
+  // default grey: #c5ced5
+  baro.back_color = "#c5ced5";
+
+  baro.render();
 </script>
-
